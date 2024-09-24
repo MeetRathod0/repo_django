@@ -5,7 +5,7 @@ In Django, signals are executed synchronously by default. This means that when a
 To demonstrate this, We have a default Django model called <mark>User</mark> and we want to print username whenever a new user is created or updated. We can use the <mark>post_save</mark> signal to achieve this:
 
 ```python
-# signals.py
+# sample_proj\signal_app\signals.py
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
@@ -33,6 +33,8 @@ Note: For testing this example, You must visit admin panel and perform add or up
 No, Django signals do not run in the same thread as the caller. They are executed in a separate thread called process, ensuring that the main application thread is not blocked and continue processing other requests.
 
 ```python
+# sample_proj\signal_app\signals.py
+
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
